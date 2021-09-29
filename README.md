@@ -1,0 +1,1 @@
+# connector-azure-log-analytics
