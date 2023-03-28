@@ -14,7 +14,7 @@ logger = get_logger('azure-log-analytics')
 
 MANAGE_SCOPE = 'https://management.azure.com/.default'
 LOG_SCOPE = 'https://api.loganalytics.io/.default'
-=======
+
 CONFIG_SUPPORTS_TOKEN = True
 try:
     from connectors.core.utils import update_connnector_config
