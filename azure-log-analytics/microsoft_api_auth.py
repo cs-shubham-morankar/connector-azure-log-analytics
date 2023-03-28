@@ -14,6 +14,20 @@ logger = get_logger('azure-log-analytics')
 
 MANAGE_SCOPE = 'https://management.azure.com/.default'
 LOG_SCOPE = 'https://api.loganalytics.io/.default'
+=======
+CONFIG_SUPPORTS_TOKEN = True
+try:
+    from connectors.core.utils import update_connnector_config
+except:
+    CONFIG_SUPPORTS_TOKEN = False
+    configfile = path.join(path.dirname(path.abspath(__file__)), 'config.conf')
+
+REFRESH_TOKEN_FLAG = False
+
+# redirect url
+DEFAULT_REDIRECT_URL = 'https://localhost/myapp'
+
+# grant types
 CLIENT_CREDENTIALS = 'client_credentials'
 
 

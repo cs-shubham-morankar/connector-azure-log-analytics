@@ -9,7 +9,7 @@
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/azure-log-analytics/171/azure-log-analytics-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -74,6 +74,20 @@
         "type": "text",
         "name": "resource_group_name",
         "description": "Unique Resource Group Name of the Log Analytics Workspace that is used to create an authentication token required to access the API."
+        "name": "code",
+        "tooltip": "The authorization code that you acquired during the authorization step. For more information, see Accessing the Azure Log Analytics API.",
+        "description": "The authorization code that you acquired during the authorization step. For more information, see Accessing the Azure Log Analytics API."
+      },
+      {
+        "title": "Redirect URL",
+        "description": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri you registered in the app registration portal.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "redirect_url",
+        "placeholder": "E.g. https://localhost/myapp",
+        "tooltip": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri you registered in the app registration portal."
       },
       {
         "title": "Verify SSL",
