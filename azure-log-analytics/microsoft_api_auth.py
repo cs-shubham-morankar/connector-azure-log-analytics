@@ -14,20 +14,6 @@ logger = get_logger('azure-log-analytics')
 
 MANAGE_SCOPE = 'https://management.azure.com/.default'
 LOG_SCOPE = 'https://api.loganalytics.io/.default'
-
-CONFIG_SUPPORTS_TOKEN = True
-try:
-    from connectors.core.utils import update_connnector_config
-except:
-    CONFIG_SUPPORTS_TOKEN = False
-    configfile = path.join(path.dirname(path.abspath(__file__)), 'config.conf')
-
-REFRESH_TOKEN_FLAG = False
-
-# redirect url
-DEFAULT_REDIRECT_URL = 'https://localhost/myapp'
-
-# grant types
 CLIENT_CREDENTIALS = 'client_credentials'
 
 
@@ -37,13 +23,6 @@ class MicrosoftAuth:
         self.client_secret = config.get("client_secret")
         self.verify_ssl = config.get('verify_ssl')
         self.scope = config.get('scope', MANAGE_SCOPE)
-        self.host = "https://"
-        if self.host[:7] == "http://":
-            self.host = self.host.replace('http://', 'https://')
-        elif self.host[:8] == "https://":
-            self.host = "{0}".format(self.host)
-        else:
-            self.host = "https://{0}".format(self.host)
         tenant_id = config.get('tenant_id')
         self.token_url = "https://login.microsoftonline.com/{0}/oauth2/token".format(tenant_id)
 
@@ -93,7 +72,7 @@ class MicrosoftAuth:
             token_resp = self.generate_token(LOG_SCOPE)
             connector_config['logAccessToken'] = token_resp['accessToken']
             connector_config['logExpiresOn'] = token_resp['expiresOn']
-            connector_config['logRefresh_token'] = token_resp.get('refresh_token')
+            connector_config['logRefreshToken'] = token_resp.get('refresh_token')
             update_connnector_config(connector_info['connector_name'], connector_info['connector_version'],
                                      connector_config,
                                      connector_config['config_id'])

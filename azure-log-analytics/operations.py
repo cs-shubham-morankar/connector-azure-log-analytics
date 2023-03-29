@@ -13,12 +13,13 @@ logger = get_logger('azure-log-analytics')
 
 MANAGE_SERVER_URL = 'https://management.azure.com'
 MANAGE_API_VERSION = '2020-08-01'
+LOG_SERVER_URL = 'https://api.loganalytics.io'
 LOG_API_VERSION = '2022-10-27_Preview'
 
 
 class AzureLogAnalytics(object):
     def __init__(self, config):
-        self.server_url = 'https://api.loganalytics.io'
+        self.server_url = LOG_SERVER_URL
         self.manage_server_url = MANAGE_SERVER_URL
         self.verify_ssl = config.get('verify_ssl')
         self.ms_auth = MicrosoftAuth(config)
@@ -229,7 +230,7 @@ def check(config, connector_info):
             token_resp = ms.generate_token(LOG_SCOPE)
             config['logAccessToken'] = token_resp['accessToken']
             config['logExpiresOn'] = token_resp['expiresOn']
-            config['logRefresh_token'] = token_resp.get('refresh_token')
+            config['logRefreshToken'] = token_resp.get('refresh_token')
             update_connnector_config(connector_info['connector_name'], connector_info['connector_version'], config,
                                      config['config_id']) and ms.validate_log_token(config, connector_info)
         else:
@@ -240,7 +241,7 @@ def check(config, connector_info):
             token_resp = ms.generate_token(LOG_SCOPE)
             config['logAccessToken'] = token_resp['accessToken']
             config['logExpiresOn'] = token_resp['expiresOn']
-            config['logRefresh_token'] = token_resp.get('refresh_token')
+            config['logRefreshToken'] = token_resp.get('refresh_token')
             update_connnector_config(connector_info['connector_name'], connector_info['connector_version'], config,
                                      config['config_id']) and ms.validate_log_token(config, connector_info)
         config['config_id'] = config_id
