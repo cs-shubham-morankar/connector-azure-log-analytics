@@ -7,6 +7,6 @@
     - Workspace Name
     - Resource Group Name
 - Removed "Authorization Code" and "Redirect URL" parameters from configuration section.
-- Removed "Workspace ID" parameter from "Execute Query" operation.
+- Removed "Workspace ID" and "Workspace Name" parameter from "Execute Query" operation.
 - Removed "Workspace Resource Group", "Workspace Subscription ID", and "Workspace Name" from "Create Saved Searches", "
-  Update Saved Searches", "List Saved Searches", "Get Saved Searches", and "Delete Saved Search".
+  Update Saved Searches", "List Saved Searches", "Get Saved Searches", and "Delete Saved Search" operations.
