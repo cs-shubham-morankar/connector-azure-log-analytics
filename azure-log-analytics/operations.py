@@ -92,7 +92,7 @@ def check_payload(payload):
             nested = check_payload(value)
             if len(nested.keys()) > 0:
                 final_payload[key] = nested
-        elif value:
+        elif value is not None and value != '':
             final_payload[key] = value
     return final_payload
 
@@ -106,7 +106,7 @@ def execute_query(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/v1/workspaces/{0}/query'.format(config.get('workspace_id'))
-        workspaces = params.get("workspaces")
+        workspaces = config.get("workspace_name")
         if workspaces:
             workspaces = workspaces.split(",")
         payload = {
@@ -182,7 +182,7 @@ def update_saved_searches(config, params):
             params.get('savedSearchId'))
         additional_fields = params.get('additional_fields')
         payload = {
-            "etag": params.get('etag'),
+            "etag": "*",
             "properties": {
                 "category": params.get('category'),
                 "displayName": params.get('displayName'),

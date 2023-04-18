@@ -116,16 +116,6 @@
           "name": "timespan",
           "placeholder": "PT12H",
           "tooltip": "(Optional) Timespan over which you want to query for data in Azure Log Analytics. This is an ISO8601 time period value. This timespan is applied in addition to any timespans. which have been specified in the query expression."
-        },
-        {
-          "title": "Workspace Name",
-          "description": "(Optional) Name of the Azure Log Analytics workspace from which you want to retrieve data.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "workspaces",
-          "tooltip": "(Optional) Name of the Azure Log Analytics workspace from which you want to retrieve data."
         }
       ],
       "output_schema": {
@@ -136,61 +126,6 @@
             "rows": []
           }
         ]
-      },
-      "enabled": true
-    },
-    {
-      "title": "List Saved Searches",
-      "operation": "list_saved_searches",
-      "description": "Retrieves the list of saved searches from Azure Log Analytics based on workspace resource group, workspace subscription ID, and workspace name you have specified.",
-      "category": "investigation ",
-      "annotation": "list_saved_searches",
-      "parameters": [
-      ],
-      "output_schema": [
-        {
-          "id": "",
-          "etag": "",
-          "properties": {
-            "Category": "",
-            "DisplayName": "",
-            "Query": "",
-            "Tags": [
-            ],
-            "Version": ""
-          }
-        }
-      ],
-      "enabled": true
-    },
-    {
-      "title": "Get Saved Searches",
-      "operation": "get_saved_searches",
-      "description": "Retrieves information for a specific saved search from Azure Log Analytics, based on the saved search ID, workspace resource group, workspace subscription ID, and workspace name you have specified.",
-      "category": "investigation",
-      "annotation": "get_saved_searches",
-      "parameters": [
-        {
-          "title": "Saved Search ID",
-          "description": "ID of the saved search that you want to retrieve from Azure Log Analytics.",
-          "required": true,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "savedSearchId"
-        }
-      ],
-      "output_schema": {
-        "id": "",
-        "etag": "",
-        "properties": {
-          "category": "",
-          "displayName": "",
-          "functionAlias": "",
-          "functionParameters": "",
-          "query": "",
-          "version": ""
-        }
       },
       "enabled": true
     },
@@ -275,6 +210,61 @@
       "enabled": true
     },
     {
+      "title": "List Saved Searches",
+      "operation": "list_saved_searches",
+      "description": "Retrieves the list of saved searches from Azure Log Analytics based on workspace resource group, workspace subscription ID, and workspace name you have specified.",
+      "category": "investigation ",
+      "annotation": "list_saved_searches",
+      "parameters": [
+      ],
+      "output_schema": [
+        {
+          "id": "",
+          "etag": "",
+          "properties": {
+            "Category": "",
+            "DisplayName": "",
+            "Query": "",
+            "Tags": [
+            ],
+            "Version": ""
+          }
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Get Saved Searches",
+      "operation": "get_saved_searches",
+      "description": "Retrieves information for a specific saved search from Azure Log Analytics, based on the saved search ID, workspace resource group, workspace subscription ID, and workspace name you have specified.",
+      "category": "investigation",
+      "annotation": "get_saved_searches",
+      "parameters": [
+        {
+          "title": "Saved Search ID",
+          "description": "ID of the saved search that you want to retrieve from Azure Log Analytics.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "savedSearchId"
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "etag": "",
+        "properties": {
+          "category": "",
+          "displayName": "",
+          "functionAlias": "",
+          "functionParameters": "",
+          "query": "",
+          "version": ""
+        }
+      },
+      "enabled": true
+    },
+    {
       "title": "Update Saved Searches",
       "operation": "update_saved_searches",
       "description": "Updates an existing saved search in Azure Log Analytics, based on the saved search ID, workspace resource group, workspace subscription ID, and workspace name, and other input parameters you have specified.",
@@ -317,16 +307,6 @@
           "type": "text",
           "name": "query",
           "placeholder": "Heartbeat | summarize Count() by Computer | take a"
-        },
-        {
-          "title": "ETag",
-          "description": "(Optional) Etag in which you want to update the saved search in Azure Log Analytics.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "text",
-          "name": "etag",
-          "tooltip": "(Optional) Etag in which you want to update the saved search in Azure Log Analytics."
         },
         {
           "title": "Additional Fields",
