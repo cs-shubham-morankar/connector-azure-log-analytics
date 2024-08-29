@@ -112,7 +112,6 @@ def execute_query(config, params):
         payload = {
             'query': params.get('query'),
             'timespan': params.get('timespan'),
-            'workspaces': workspaces
         }
         payload = build_payload(payload)
         logger.debug("Payload: {0}".format(payload))
