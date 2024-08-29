@@ -3,7 +3,7 @@
   "data": [
     {
       "@type": "WorkflowCollection",
-      "name": "Sample - Azure Log Analytics - 2.0.0",
+      "name": "Sample - Azure Log Analytics - 2.0.1",
       "description": "Sample playbooks for \"Azure Log Analytics\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
       "image": null,
@@ -44,7 +44,7 @@
                   "workspaces": "",
                   "WorkspaceId": "6c3970b0-0d7b-4e81-bb05-25e1c2cfdc2e"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "execute_query",
                 "operationTitle": "Execute Query",
@@ -147,7 +147,7 @@
                   "additional_fields": "",
                   "resourceGroupName": "fortinet-baner"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "update_saved_searches",
                 "operationTitle": "Update Saved Searches",
@@ -281,7 +281,7 @@
                   "subscriptionId": "6212c9c8-54a6-41ee-846b-37727030c040",
                   "resourceGroupName": "fortinet-baner"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "delete_saved_search",
                 "operationTitle": "Delete Saved Search",
@@ -356,7 +356,7 @@
                   "additional_fields": "",
                   "resourceGroupName": "fortinet-baner"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "create_saved_searches",
                 "operationTitle": "Create Saved Searches",
@@ -453,7 +453,7 @@
                   "subscriptionId": "6212c9c8-54a6-41ee-846b-37727030c040",
                   "resourceGroupName": "fortinet-baner"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "list_saved_searches",
                 "operationTitle": "List Saved Searches",
@@ -551,7 +551,7 @@
                   "subscriptionId": "6212c9c8-54a6-41ee-846b-37727030c040",
                   "resourceGroupName": "fortinet-baner"
                 },
-                "version": "2.0.0",
+                "version": "2.0.1",
                 "connector": "azure-log-analytics",
                 "operation": "get_saved_searches",
                 "operationTitle": "Get Saved Searches",

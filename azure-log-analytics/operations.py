@@ -1,5 +1,5 @@
 """ Copyright start
-  Copyright (C) 2008 - 2021 Fortinet Inc.
+  Copyright (C) 2008 - 2024 Fortinet Inc.
   All rights reserved.
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
@@ -106,12 +106,13 @@ def execute_query(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/v1/workspaces/{0}/query'.format(config.get('workspace_id'))
-        workspaces = config.get("workspace_name")
+        workspaces = params.get("workspace_name")
         if workspaces:
             workspaces = workspaces.split(",")
         payload = {
             'query': params.get('query'),
             'timespan': params.get('timespan'),
+            'workspaces': workspaces
         }
         payload = build_payload(payload)
         logger.debug("Payload: {0}".format(payload))
@@ -126,7 +127,7 @@ def list_saved_searches(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/savedSearches'.format(
-            config.get('subscription_id'), config.get('resource_group_name'), config.get('workspace_name'))
+            config.get('subscription_id'), config.get('resource_group_name'), params.get('workspace_name'))
         response = al.api_request("GET", endpoint, config, manage_api_endpoint=True, params={})
         return response
     except Exception as err:
@@ -138,7 +139,7 @@ def get_saved_searches(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/savedSearches/{3}'.format(
-            config.get('subscription_id'), config.get('resource_group_name'), config.get('workspace_name'),
+            config.get('subscription_id'), config.get('resource_group_name'), params.get('workspace_name'),
             params.get('savedSearchId'))
         response = al.api_request("GET", endpoint, config, manage_api_endpoint=True, params={})
         return response
@@ -151,7 +152,7 @@ def create_saved_searches(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/savedSearches/{3}'.format(
-            config.get('subscription_id'), config.get('resource_group_name'), config.get('workspace_name'),
+            config.get('subscription_id'), config.get('resource_group_name'), params.get('workspace_name'),
             params.get('savedSearchId'))
         additional_fields = params.get('additional_fields')
         payload = {
@@ -177,7 +178,7 @@ def update_saved_searches(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/savedSearches/{3}'.format(
-            config.get('subscription_id'), config.get('resource_group_name'), config.get('workspace_name'),
+            config.get('subscription_id'), config.get('resource_group_name'), params.get('workspace_name'),
             params.get('savedSearchId'))
         additional_fields = params.get('additional_fields')
         payload = {
@@ -192,7 +193,7 @@ def update_saved_searches(config, params):
             payload['properties'].update(additional_fields)
         payload = check_payload(payload)
         logger.debug("Payload: {0}".format(payload))
-        response = al.api_request("PUT", endpoint, config, data=payload, manage_api_endpoint=True, params={})
+        response = al.api_request("PATCH", endpoint, config, data=payload, manage_api_endpoint=True, params={})
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
@@ -203,7 +204,7 @@ def delete_saved_search(config, params):
     try:
         al = AzureLogAnalytics(config)
         endpoint = '/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/savedSearches/{3}'.format(
-            config.get('subscription_id'), config.get('resource_group_name'), config.get('workspace_name'),
+            config.get('subscription_id'), config.get('resource_group_name'), params.get('workspace_name'),
             params.get('savedSearchId'))
         response = al.api_request("DELETE", endpoint, config, manage_api_endpoint=True, params={})
         return {'result': 'Deleted Saved Search {0} successfully'.format(params.get('savedSearchId'))}
