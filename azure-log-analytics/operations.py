@@ -1,8 +1,9 @@
-""" Copyright start
-  Copyright (C) 2008 - 2024 Fortinet Inc.
-  All rights reserved.
-  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
-  Copyright end """
+"""
+Copyright start
+MIT License
+Copyright (c) 2024 Fortinet Inc
+Copyright end
+"""
 
 from requests import request, exceptions as req_exceptions
 from .microsoft_api_auth import *
