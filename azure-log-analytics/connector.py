@@ -29,7 +29,7 @@ class AzureLogAnalytics(Connector):
             connector_info = {"connector_name": self._info_json.get('name'),
                               "connector_version": self._info_json.get('version')}
             config['connector_info'] = connector_info
-            check(config, connector_info) and list_saved_searches(config=config, params={})
+            check(config, connector_info)
             return True
         except Exception as err:
             logger.error(str(err))
