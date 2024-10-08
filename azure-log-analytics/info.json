@@ -49,15 +49,6 @@
         "description": "Unique Subscription ID of the Log Analytics Workspace that is used to create an authentication token required to access the API."
       },
       {
-        "title": "Workspace ID",
-        "required": true,
-        "editable": true,
-        "visible": true,
-        "type": "password",
-        "name": "workspace_id",
-        "description": "Unique Workspace ID of the Log Analytics Workspace that is used to create an authentication token required to access the API."
-      },
-      {
         "title": "Resource Group Name",
         "required": true,
         "editable": true,
@@ -86,6 +77,16 @@
       "category": "investigation ",
       "annotation": "execute_query",
       "parameters": [
+        {
+          "title": "Workspace ID",
+          "description": "Unique workspace ID of the Log Analytics workspace from which you want to retrieve data.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "workspace_id",
+          "tooltip": "Unique workspace ID of the Log Analytics workspace from which you want to retrieve data."
+        },
         {
           "title": "Query",
           "description": "Specify the query based on which to retrieve data from Azure Log Analytics.",
@@ -244,8 +245,7 @@
             "Category": "",
             "DisplayName": "",
             "Query": "",
-            "Tags": [
-            ],
+            "Tags": [],
             "Version": ""
           }
         }

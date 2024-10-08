@@ -52,7 +52,6 @@ class AzureLogAnalytics(object):
                                    verify=self.verify_ssl)
                 logger.debug("Response Status Code: {0}".format(response.status_code))
                 logger.debug("Response: {0}".format(response.text))
-                logger.debug("API Header: {0}".format(response.headers))
                 if response.status_code in [200, 201, 204]:
                     if response.text != "":
                         return response.json()
@@ -106,7 +105,7 @@ def build_payload(payload):
 def execute_query(config, params):
     try:
         al = AzureLogAnalytics(config)
-        endpoint = '/v1/workspaces/{0}/query'.format(config.get('workspace_id'))
+        endpoint = '/v1/workspaces/{0}/query'.format(params.get('workspace_id'))
         workspaces = params.get("workspace_name")
         if workspaces:
             workspaces = workspaces.split(",")
@@ -194,7 +193,7 @@ def update_saved_searches(config, params):
             payload['properties'].update(additional_fields)
         payload = check_payload(payload)
         logger.debug("Payload: {0}".format(payload))
-        response = al.api_request("PATCH", endpoint, config, data=payload, manage_api_endpoint=True, params={})
+        response = al.api_request("PUT", endpoint, config, data=payload, manage_api_endpoint=True, params={})
         return response
     except Exception as err:
         logger.exception("{0}".format(str(err)))
