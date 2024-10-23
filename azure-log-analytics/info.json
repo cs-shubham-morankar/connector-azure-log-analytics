@@ -9,11 +9,12 @@
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/2.0.1/azure-log-analytics/979/azure-log-analytics-v2-0-1",
   "configuration": {
     "fields": [
       {
         "title": "Tenant ID",
+        "tooltip": "ID of the tenant that you have been provided for your Azure Active Directory instance.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -23,6 +24,7 @@
       },
       {
         "title": "Client ID",
+        "tooltip": "Unique API ID of the Azure AD application that is used to create an authentication token required to access the API.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -32,6 +34,7 @@
       },
       {
         "title": "Client Secret",
+        "tooltip": "Unique API Secret of the Azure AD application that is used to create an authentication token required to access the API.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -41,6 +44,7 @@
       },
       {
         "title": "Subscription ID",
+        "tooltip": "Unique Subscription ID of the Log Analytics Workspace that is used to create an authentication token required to access the API.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -50,6 +54,7 @@
       },
       {
         "title": "Resource Group Name",
+        "tooltip": "Unique Resource Group Name of the Log Analytics Workspace that is used to create an authentication token required to access the API.",
         "required": true,
         "editable": true,
         "visible": true,
@@ -59,13 +64,14 @@
       },
       {
         "title": "Verify SSL",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true.",
         "required": false,
         "editable": true,
         "visible": true,
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true."
       }
     ]
   },
@@ -79,13 +85,13 @@
       "parameters": [
         {
           "title": "Workspace ID",
-          "description": "Unique workspace ID of the Log Analytics workspace from which you want to retrieve data.",
+          "description": "Specify the unique workspace ID of the Log Analytics workspace from which to retrieve data.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "workspace_id",
-          "tooltip": "Unique workspace ID of the Log Analytics workspace from which you want to retrieve data."
+          "tooltip": "Specify the unique workspace ID of the Log Analytics workspace from which to retrieve data."
         },
         {
           "title": "Query",
@@ -111,13 +117,12 @@
         },
         {
           "title": "Workspace Name",
-          "description": "(Optional) Name of the Azure Log Analytics workspace from which you want to retrieve data.",
-          "required": false,
+          "description": "(Optional) Specify the name of the Azure Log Analytics workspace from which to retrieve data.",
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "workspace_name",
-          "tooltip": "(Optional) Name of the Azure Log Analytics workspace from which you want to retrieve data."
+          "tooltip": "(Optional) Specify the name of the Azure Log Analytics workspace from which to retrieve data."
         }
       ],
       "output_schema": {
@@ -149,7 +154,7 @@
         },
         {
           "title": "Workspace Name",
-          "description": "Name of the Azure Log Analytics workspace in which you want to create the saved search.",
+          "description": "Specify the name of the Azure Log Analytics workspace from which to create the saved search.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -229,7 +234,7 @@
       "parameters": [
         {
           "title": "Workspace Name",
-          "description": "Name of the Azure Log Analytics workspace from which you want to retrieve the saved searches.",
+          "description": "Specify the name of the Azure Log Analytics workspace from which to retrieve the saved searches.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -270,7 +275,7 @@
         },
         {
           "title": "Workspace Name",
-          "description": "Name of the Azure Log Analytics workspace from which you want to retrieve the specified saved search.",
+          "description": "Specify the name of the Azure Log Analytics workspace from which to retrieve the specified saved search.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -310,7 +315,7 @@
         },
         {
           "title": "Workspace Name",
-          "description": "Name of the Azure Log Analytics workspace in which you want to update the saved search.",
+          "description": "Specify the name of the Azure Log Analytics workspace from which to update the saved search.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -388,7 +393,7 @@
         },
         {
           "title": "Workspace Name",
-          "description": "Name of the Azure Log Analytics workspace from which you want to delete the saved search.",
+          "description": "Specify the name of the Azure Log Analytics workspace from which to delete the saved search.",
           "required": true,
           "editable": true,
           "visible": true,
